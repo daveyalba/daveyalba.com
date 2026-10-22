@@ -1,28 +1,22 @@
-/* daveyalba.com — single stylesheet, no build step */
+/* daveyalba.com — matches the original Squarespace design. No build step. */
 
 :root {
-  --bg: #fbfaf7;
-  --text: #1d1d1b;
-  --muted: #6b6a66;
-  --rule: #e4e1da;
-  --accent: #9b2c1f;
-  --accent-hover: #6f1d14;
-  --code-bg: #f1efe9;
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --bg: #ffffff;
+  --text: #777777;       /* body text */
+  --strong: #121212;     /* headings */
+  --nav-idle: #cfcfcf;   /* inactive nav links */
+  --nav-active: #000000;
+  --link: #6699cc;
+  --link-hover: #3d6f9e;
+  --rule: #e6e6e6;
+  --icon: #8c8c8c;
+  --code-bg: #f7f7f7;
+  --script: "Homemade Apple", cursive;
+  /* The original used Museo Sans (an Adobe font licensed through Squarespace).
+     Nunito Sans Light is the closest free match. */
+  --sans: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #161615;
-    --text: #e9e7e2;
-    --muted: #9c9a94;
-    --rule: #2e2d2a;
-    --accent: #e0846f;
-    --accent-hover: #f0a896;
-    --code-bg: #1f1e1c;
-  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -33,42 +27,50 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--serif);
-  font-size: 1.175rem;
-  line-height: 1.65;
-  font-optical-sizing: auto;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
 }
 
+strong, b { font-weight: 700; color: #555; }
+
 .wrap {
-  max-width: 44rem;
+  max-width: 924px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
+
+main, .site-footer { max-width: 800px; margin-left: auto; margin-right: auto; }
 
 /* ---------- header ---------- */
 .site-header {
-  padding: 3rem 0 1.5rem;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 2.5rem;
+  text-align: center;
+  padding: 3.5rem 0 1.75rem;
 }
 
 .site-name {
-  font-size: 2.6rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.6;
+  text-transform: lowercase;
   margin: 0;
 }
 
-.site-name a { color: var(--text); text-decoration: none; }
+.site-name a { color: #1a1a1a; text-decoration: none; }
 
 .tagline {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  font-size: 16px;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0.5rem 0 1.25rem;
+  color: var(--text);
+  margin: 1.25rem 0 1.75rem;
+}
+
+.site-nav {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
 }
 
 .site-nav ul {
@@ -76,84 +78,62 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.25rem 1.5rem;
-  font-family: var(--sans);
-  font-size: 0.92rem;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
-.site-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
+.site-nav a { color: var(--nav-idle); text-decoration: none; transition: color 0.15s; }
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--nav-active); }
+
+/* ---------- text ---------- */
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--strong);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.8;
 }
+h1 { font-size: 16.5px; text-align: center; margin: 0 0 1.5rem; }
+h2 { font-size: 15px; margin: 2.75rem 0 0.75rem; }
+h2 a { color: var(--strong); }
+h2 a:hover { color: var(--link); }
 
-.site-nav a:hover { color: var(--text); }
+p { margin: 0 0 1.6rem; }
 
-.site-nav a[aria-current="page"] {
-  color: var(--text);
-  border-bottom-color: var(--accent);
-}
+figure { margin: 0 0 1.75rem; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { font-size: 12px; margin-top: 0.75rem; }
 
-/* ---------- body text ---------- */
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
-a:hover { color: var(--accent-hover); }
-
-h1, h2, h3 { font-weight: 500; line-height: 1.25; letter-spacing: -0.005em; }
-h1 { font-size: 2rem; margin: 0 0 1.5rem; }
-h2 { font-size: 1.45rem; margin: 3rem 0 1rem; }
-h2 a { color: inherit; text-decoration: none; }
-h2 a:hover { color: var(--accent); }
-
-p { margin: 0 0 1.15rem; }
-
-.lede { font-size: 1.3rem; }
-
-figure { margin: 0 0 2rem; }
-figure img { display: block; width: 100%; height: auto; border-radius: 2px; background: var(--rule); }
-figcaption {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.5rem;
-}
-
-.portrait { max-width: 22rem; }
+/* Home page: photo on the left, text wrapping beside it */
+.portrait { float: left; width: 39%; margin: 0 4% 1.5rem 0; }
+.clear { clear: both; }
 
 /* ---------- clips ---------- */
-.featured {
-  border-left: 3px solid var(--accent);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  margin-bottom: 1rem;
-}
-.featured .title { display: block; font-size: 1.35rem; line-height: 1.35; margin-bottom: 0.2rem; }
+.featured { margin-bottom: 1rem; }
+.featured .title { font-weight: 700; }
 
 .clips { list-style: none; margin: 0; padding: 0; }
-.clips li { padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
-.clips li:last-child { border-bottom: 0; }
-.clips .title { font-weight: 500; }
-.meta {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-.note {
-  display: block;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 0.3rem;
-}
+.clips li { margin: 0 0 1.1rem; }
+.meta { }
+.note { display: block; }
 .note::before { content: "— "; }
 
 /* ---------- pgp ---------- */
 pre.key {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 12px;
   line-height: 1.5;
+  color: #444;
   background: var(--code-bg);
-  border: 1px solid var(--rule);
   padding: 1rem;
   overflow-x: auto;
   white-space: pre;
@@ -161,36 +141,52 @@ pre.key {
 
 .button {
   display: inline-block;
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  border: 1px solid var(--accent);
-  padding: 0.45rem 0.9rem;
-  border-radius: 3px;
-  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid var(--link);
+  padding: 0.4rem 0.9rem;
 }
-.button:hover { background: var(--accent); color: var(--bg); }
+.button:hover { background: var(--link); color: #fff; }
 
 /* ---------- article pages ---------- */
-.article h1 { font-size: 2.1rem; margin-bottom: 0.5rem; }
-.article .dek { color: var(--muted); font-family: var(--sans); font-size: 0.9rem; margin-bottom: 2rem; }
-.article blockquote { margin: 1.5rem 0; padding-left: 1.25rem; border-left: 2px solid var(--rule); color: var(--muted); }
+.article h1 { font-size: 18px; margin-bottom: 0.25rem; }
+.article .dek { text-align: center; font-size: 13px; margin-bottom: 2rem; }
 
-/* ---------- footer ---------- */
+/* ---------- footer: round social icons ---------- */
 .site-footer {
-  margin-top: 4rem;
-  padding: 1.5rem 0 3rem;
-  border-top: 1px solid var(--rule);
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  color: var(--muted);
+  clear: both;
+  text-align: center;
+  padding: 4rem 0 3rem;
 }
-.site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
-.site-footer a { color: var(--muted); }
-.site-footer a:hover { color: var(--text); }
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--icon);
+  color: #fff;
+  font-size: 12px;
+  transition: background 0.15s;
+}
+.site-footer a:hover { background: #444; color: #fff; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
 
-@media (max-width: 34rem) {
-  body { font-size: 1.08rem; }
+@media (max-width: 640px) {
   .site-header { padding-top: 2rem; }
-  .site-name { font-size: 2.1rem; }
-  h1 { font-size: 1.7rem; }
+  .site-name { font-size: 2.3rem; }
+  .portrait { float: none; width: 100%; max-width: 340px; margin: 0 auto 1.75rem; }
 }
