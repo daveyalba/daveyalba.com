@@ -126,6 +126,9 @@ figcaption { font-size: 12px; margin-top: 0.75rem; }
 .meta { }
 .note { display: block; }
 .note::before { content: "— "; }
+.byline { display: block; font-size: 13.5px; font-style: italic; margin-top: 0.15rem; }
+.desc { display: block; font-size: 13.5px; line-height: 1.7; margin: 0.35rem 0 0.2rem; }
+.clips li:has(.desc) { margin-bottom: 1.6rem; }
 
 /* ---------- pgp ---------- */
 pre.key {
