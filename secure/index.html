@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Contact — Davey Alba</title>
+  <meta name="description" content="How to reach Davey Alba securely.">
+  <meta name="robots" content="noarchive">
+  <link rel="canonical" href="https://www.daveyalba.com/secure/">
+  <meta property="og:title" content="Secure Contact — Davey Alba">
+  <meta property="og:site_name" content="Davey Alba">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Nunito+Sans:ital,wght@0,300;0,700;1,300&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .signal-card {
+      margin: 2.25rem 0;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+    }
+    .signal-label {
+      font-family: var(--serif);
+      color: var(--strong);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin: 0 0 1.1rem;
+    }
+    .reveal-btn {
+      font: inherit;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--link);
+      background: none;
+      border: 1px solid var(--link);
+      padding: 0.7rem 1.4rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .reveal-btn:hover, .reveal-btn:focus-visible { background: var(--link); color: #fff; outline: none; }
+    .handle {
+      display: none;
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      color: var(--strong);
+      min-height: 2.2rem;
+    }
+    .handle .scrambling { color: var(--nav-idle); }
+    .copy-btn {
+      display: none;
+      margin: 1rem auto 0;
+      font: inherit;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text);
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+    .copy-btn:hover { color: var(--link); }
+    ol.steps { padding-left: 1.25rem; margin: 0 0 1.6rem; }
+    ol.steps li { margin-bottom: 0.4rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <p class="site-name"><a href="../">Davey Alba</a></p>
+      <p class="tagline">Writing portfolio</p>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">About Me</a></li>
+          <li><a href="../clips/">Clips</a></li>
+          <li><a href="../resume/">Resume</a></li>
+          <li><a href="./" aria-current="page">Secure Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Secure Contact</h1>
+
+      <p>If you have a tip or something sensitive to share, the safest way to reach me is <a href="https://signal.org/">Signal</a>, a free messaging app with end-to-end encryption. Signal keeps phone numbers private by default, so messaging my username won’t show me your number.</p>
+
+      <div class="signal-card">
+        <p class="signal-label">My Signal username</p>
+        <button type="button" class="reveal-btn" id="reveal">Reveal username</button>
+        <div class="handle" id="handle" aria-live="polite"></div>
+        <button type="button" class="copy-btn" id="copy"><i class="fa-regular fa-copy" aria-hidden="true"></i>&nbsp; Copy</button>
+        <noscript><p>Turn on JavaScript in your browser to see my Signal username.</p></noscript>
+      </div>
+
+      <h2>How to message me</h2>
+      <ol class="steps">
+        <li>Install Signal from <a href="https://signal.org/">signal.org</a> or your phone’s app store.</li>
+        <li>Start a new chat, choose <em>Find by username</em>, and enter the username above.</li>
+        <li>For extra privacy, turn on disappearing messages in the chat settings.</li>
+      </ol>
+
+      <p>A few precautions are worth taking: use a personal phone rather than one issued by your employer, and avoid contacting me from a work network or account.</p>
+    </main>
+
+    <footer class="site-footer">
+      <ul>
+        <li><a href="https://bsky.app/profile/davey.bsky.social"><i class="fa-brands fa-bluesky" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a></li>
+        <li><a href="https://www.linkedin.com/pub/davey-alba/19/787/6b3"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a></li>
+        <li><a href="https://www.instagram.com/daveya/"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="visually-hidden">Instagram</span></a></li>
+        <li><a href="https://twitter.com/daveyalba"><i class="fa-brands fa-twitter" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+  (function () {
+    // The username is never stored as readable text: it is XOR-encoded and only
+    // decoded in the browser after a person clicks the button.
+    var e = [27, 50, 216, 222, 246, 70, 171, 13, 86, 64, 36, 218];
+    var k = [235, 20, 110, 55, 111, 199, 39, 143, 187, 174, 83, 127].reverse();
+    var decode = function () {
+      return e.map(function (c, i) { return String.fromCharCode(c ^ k[i]); }).join("");
+    };
+
+    var btn = document.getElementById("reveal");
+    var out = document.getElementById("handle");
+    var copy = document.getElementById("copy");
+    var glyphs = "abcdefghijklmnopqrstuvwxyz0123456789#%&*+=?<>/";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    btn.addEventListener("click", function () {
+      var real = decode();
+      btn.style.display = "none";
+      out.style.display = "block";
+
+      if (reduce) { out.textContent = real; copy.style.display = "inline-block"; return; }
+
+      var frame = 0, total = 26;
+      var timer = setInterval(function () {
+        frame++;
+        var locked = Math.floor((frame / total) * real.length);
+        var html = "";
+        for (var i = 0; i < real.length; i++) {
+          if (i < locked || real[i] === ".") { html += real[i]; }
+          else { html += '<span class="scrambling">' + glyphs[Math.floor(Math.random() * glyphs.length)] + "</span>"; }
+        }
+        out.innerHTML = html;
+        if (frame >= total) {
+          clearInterval(timer);
+          out.textContent = real;
+          copy.style.display = "inline-block";
+        }
+      }, 45);
+    });
+
+    copy.addEventListener("click", function () {
+      var real = decode();
+      var done = function () { copy.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>&nbsp; Copied'; };
+      if (navigator.clipboard) { navigator.clipboard.writeText(real).then(done, function () {}); }
+    });
+  })();
+  </script>
+</body>
+</html>

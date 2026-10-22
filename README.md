@@ -6,7 +6,8 @@ Plain HTML/CSS site hosted free on GitHub Pages. No build step: edit a file, com
 index.html            About Me (home)
 clips/index.html      Clips
 resume/index.html     Resume
-pgp/index.html        PGP (+ pgp/davey-alba.asc)
+secure/index.html     Secure Contact (Signal; username is encoded, revealed on click)
+pgp/index.html        redirect from the old PGP page to /secure/
 heat-wave/            2012 Columbia piece
 fiber-optics/         2012 Columbia piece
 assets/style.css      all styling
