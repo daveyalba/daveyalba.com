@@ -158,10 +158,50 @@
       }, 45);
     });
 
+    var label = copy.innerHTML;
+    var flash = function (html) {
+      copy.innerHTML = html;
+      setTimeout(function () { copy.innerHTML = label; }, 2000);
+    };
+    var copied = function () { flash('<i class="fa-solid fa-check" aria-hidden="true"></i>&nbsp; Copied'); };
+
+    // Older method: works on plain http pages too, where the modern clipboard API is unavailable.
+    var fallbackCopy = function (text) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) {}
+      document.body.removeChild(ta);
+      return ok;
+    };
+
+    // Last resort: highlight the username so the visitor can press Cmd/Ctrl+C.
+    var selectHandle = function () {
+      var range = document.createRange();
+      range.selectNodeContents(out);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      flash("Selected — press ⌘C or Ctrl+C");
+    };
+
     copy.addEventListener("click", function () {
       var real = decode();
-      var done = function () { copy.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>&nbsp; Copied'; };
-      if (navigator.clipboard) { navigator.clipboard.writeText(real).then(done, function () {}); }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(real).then(copied, function () {
+          if (fallbackCopy(real)) { copied(); } else { selectHandle(); }
+        });
+      } else if (fallbackCopy(real)) {
+        copied();
+      } else {
+        selectHandle();
+      }
     });
   })();
   </script>
