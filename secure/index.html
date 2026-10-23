@@ -65,6 +65,33 @@
       cursor: pointer;
     }
     .copy-btn:hover { color: var(--link); }
+    .signal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #fff;
+      background: #3a76f0;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.85rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .signal-btn:hover, .signal-btn:focus-visible { background: #2c5fcc; color: #fff; outline: none; }
+    .signal-btn i { font-size: 1.25rem; }
+    .signal-hint { font-size: 12px; margin: 0.75rem 0 0; }
+    .or-rule {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--nav-idle); margin: 1.75rem auto 1.4rem; max-width: 22rem;
+    }
+    .or-rule::before, .or-rule::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
     ol.steps { padding-left: 1.25rem; margin: 0 0 1.6rem; }
     ol.steps li { margin-bottom: 0.4rem; }
   </style>
@@ -90,6 +117,11 @@
       <p>If you have a tip or something sensitive to share, the safest way to reach me is <a href="https://signal.org/">Signal</a>, a free messaging app with end-to-end encryption. Signal keeps phone numbers private by default, so messaging my username won’t show me your number.</p>
 
       <div class="signal-card">
+        <a class="signal-btn" id="open-signal" href="#" rel="noopener noreferrer"><i class="fa-brands fa-signal-messenger" aria-hidden="true"></i>Message me on Signal</a>
+        <p class="signal-hint">Opens a new chat with me in the Signal app.</p>
+
+        <div class="or-rule">or add me manually</div>
+
         <p class="signal-label">My Signal username</p>
         <button type="button" class="reveal-btn" id="reveal">Reveal username</button>
         <div class="handle" id="handle" aria-live="polite"></div>
@@ -100,7 +132,7 @@
       <h2>How to message me</h2>
       <ol class="steps">
         <li>Install Signal from <a href="https://signal.org/">signal.org</a> or your phone’s app store.</li>
-        <li>Start a new chat, choose <em>Find by username</em>, and enter the username above.</li>
+        <li>Tap <em>Message me on Signal</em> above. Or start a new chat, choose <em>Find by username</em>, and enter my username.</li>
         <li>For extra privacy, turn on disappearing messages in the chat settings.</li>
       </ol>
 
@@ -190,6 +222,16 @@
       sel.addRange(range);
       flash("Selected — press ⌘C or Ctrl+C");
     };
+
+    // Signal chat link, also kept encoded until clicked.
+    var le = [198, 227, 2, 147, 149, 103, 236, 75, 101, 236, 31, 203, 67, 215, 189, 39, 215, 95, 196, 214, 170, 7, 206, 199, 198, 248, 198, 151, 161, 32, 6, 33, 93, 183, 217, 83, 201, 94, 1, 145, 210, 145, 67, 14, 209, 165, 77, 63, 209, 92, 54, 28, 224, 98, 40, 48, 112, 17, 141, 199, 204, 136, 124, 97, 190, 252, 239, 43, 127, 182, 17, 32, 51, 117, 109, 220, 111, 98, 253, 67, 67, 9, 22, 231, 226, 14];
+    var lk = [124, 213, 184, 119, 49, 34, 28, 186, 32, 33, 235, 53, 52, 91, 97, 64, 225, 72, 67, 157, 200, 211, 59, 36, 206, 169, 190, 220, 107, 32, 98, 107, 42, 137, 70, 90, 51, 186, 123, 58, 201, 176, 57, 118, 227, 132, 193, 116, 39, 184, 24, 224, 231, 17, 71, 85, 110, 211, 220, 179, 160, 160, 158, 153, 40, 223, 179, 231, 112, 178, 74, 147, 187, 34, 165, 120, 133, 22, 100, 195, 93, 230, 227, 118, 151, 174].reverse();
+    var openBtn = document.getElementById("open-signal");
+    openBtn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      var url = le.map(function (c, i) { return String.fromCharCode(c ^ lk[i]); }).join("");
+      window.location.href = url;
+    });
 
     copy.addEventListener("click", function () {
       var real = decode();
