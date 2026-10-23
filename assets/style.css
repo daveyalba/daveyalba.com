@@ -198,7 +198,7 @@ pre.key {
 /* Home page: photo and opening paragraphs as two columns, so text never wraps under the photo */
 .intro {
   display: grid;
-  grid-template-columns: 39% 1fr;
+  grid-template-columns: 45% 1fr;
   column-gap: 4%;
   align-items: start;
   margin-bottom: 1.6rem;
