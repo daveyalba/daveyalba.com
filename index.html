@@ -265,9 +265,20 @@ footer .copy{font-family:var(--mono);font-size:.72rem;color:var(--ink-2)}
   .nav ul{order:2;flex-basis:100%;margin:0;flex-wrap:nowrap;justify-content:space-between;gap:.6rem}
   .nav li a{font-size:.68rem;letter-spacing:.05em;white-space:nowrap}
   section{padding-block:3.2rem}
+  .hero{padding-block:1.6rem 2.4rem}
+  .hero .wrap{gap:1.6rem}
+  .eyebrow{font-size:.64rem;letter-spacing:.04em;gap:.5em;white-space:nowrap}
+  .eyebrow::before{width:1.4em}
+  .hero .role{font-size:1.08rem;margin-top:1rem}
+  .cta{margin-top:1.3rem;gap:.6rem}
+  .portrait{max-width:none}
+  .portrait img{aspect-ratio:4/3;object-position:50% 28%}
   .strip .wrap{flex-wrap:wrap;gap:.5rem .8rem;justify-content:space-between}
   .ticker{order:3;flex-basis:100%}
   .clip{grid-template-columns:1fr;gap:.3rem}
+}
+@media (max-width:370px){
+  .eyebrow{white-space:normal}
 }
 </style>
 
