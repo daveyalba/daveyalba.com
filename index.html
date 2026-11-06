@@ -250,6 +250,11 @@ footer .copy{font-family:var(--mono);font-size:.72rem;color:var(--ink-2)}
   .portrait{max-width:420px}
   .sec-head{grid-template-columns:1fr;gap:.6rem}
   .featured{grid-template-columns:1fr;gap:1rem}
+  .featured > div:first-child{display:contents}
+  .featured .tag{order:1}
+  .featured > div:last-child{order:2}
+  .featured .awards{order:3;margin:.4rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);gap:.9rem}
+  .featured .awards li{border-left:2px solid var(--accent);padding-left:.8rem}
   .ledger li{grid-template-columns:4rem minmax(0,1fr);gap:.8rem}
   .ledger .for{grid-column:2}
 }
