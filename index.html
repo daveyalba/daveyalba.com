@@ -1,73 +1,616 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Davey Alba</title>
-  <meta name="description" content="Davey Alba is a New York-based technology reporter for Bloomberg covering Big Tech. Previously she covered online disinformation for The New York Times and was a senior reporter at BuzzFeed News.">
-  <link rel="canonical" href="https://www.daveyalba.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Davey Alba">
-  <meta property="og:title" content="Davey Alba">
-  <meta property="og:description" content="Technology reporter for Bloomberg, based in New York City.">
-  <meta property="og:url" content="https://www.daveyalba.com/">
-  <meta property="og:image" content="https://www.daveyalba.com/images/davey-alba.png">
-  <meta name="twitter:card" content="summary">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Nunito+Sans:ital,wght@0,300;0,700;1,300&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="assets/style.css?v=6">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Davey Alba</title>
+<meta name="description" content="Davey Alba is a technology reporter for Bloomberg News covering Big Tech and its power.">
+<link rel="canonical" href="https://www.daveyalba.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f4f5f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Davey Alba">
+<meta property="og:title" content="Davey Alba, technology reporter at Bloomberg News">
+<meta property="og:description" content="Davey Alba is a technology reporter for Bloomberg News covering Big Tech and its power.">
+<meta property="og:url" content="https://www.daveyalba.com/">
+<meta property="og:image" content="https://www.daveyalba.com/images/davey-alba.jpg">
+<meta property="og:image:width" content="863">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Davey Alba standing on a New York City street in a denim jacket">
+<meta name="twitter:card" content="summary">
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a wire-service masthead and a left-aligned column of evidence — grotesque headlines, serif reading text, mono metadata like a document index. */
+:root{
+  --paper:#f4f5f3;
+  --paper-2:#e9ebe7;
+  --ink:#13171d;
+  --ink-2:#4b525c;
+  --line:#cfd3cd;
+  --accent:#1d3fd1;
+  --accent-ink:#ffffff;
+  --mark-light:#cdd8ff;
+  --mark-dark:#22306b;
+  --mark:var(--mark-light);
+  --panel:#13171d;
+  --panel-fg:#eef0f3;
+  --panel-muted:#9aa3b0;
+  --panel-line:#2b323c;
+  --panel-accent:#8ea2ff;
+  --display:"Archivo",system-ui,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1216;--paper-2:#171b21;--ink:#eceef1;--ink-2:#a3abb6;--line:#2a3039;
+    --accent:#8ea2ff;--accent-ink:#0f1216;--mark:var(--mark-dark);
+    --panel:#171b21;--panel-fg:#eceef1;--panel-muted:#9aa3b0;--panel-line:#2e353f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1216;--paper-2:#171b21;--ink:#eceef1;--ink-2:#a3abb6;--line:#2a3039;
+  --accent:#8ea2ff;--accent-ink:#0f1216;--mark:var(--mark-dark);
+  --panel:#171b21;--panel-fg:#eceef1;--panel-muted:#9aa3b0;--panel-line:#2e353f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:2.2em;height:2px;background:var(--accent);display:inline-block}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.75rem;flex-wrap:wrap}
+.wordmark{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 110;letter-spacing:-.02em;font-size:1.1rem;text-decoration:none}
+.wordmark span{color:var(--accent)}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.1rem 1.4rem;flex-wrap:wrap}
+.nav li a{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-2)}
+.nav li a:hover{color:var(--accent)}
+.nav li a.tip{color:var(--accent)}
+.nav li{display:flex;align-items:center}
+.theme{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:999px;border:1px solid var(--line);background:none;color:var(--ink-2);cursor:pointer;padding:0}
+.theme:hover{color:var(--accent);border-color:var(--accent)}
+.theme .moon{display:none}
+:root[data-theme="dark"] .theme .sun{display:none}
+:root[data-theme="dark"] .theme .moon{display:inline}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .sun{display:none}:root:not([data-theme="light"]) .theme .moon{display:inline}}
+
+/* hero */
+.hero{padding-block:3.5rem 3rem}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:3rem;align-items:end}
+.hero h1{font-size:clamp(3.2rem,9.5vw,7.4rem);font-weight:800;font-variation-settings:"wdth" 112;letter-spacing:-.035em;line-height:.92}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 58%,var(--mark) 58%,var(--mark) 92%,transparent 92%)}
+.hero .role{margin:1.4rem 0 0;font-size:1.25rem;line-height:1.5;max-width:34em}
+.hero .role strong{font-weight:600}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+.btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.8em 1.2em;border:1.5px solid var(--ink);border-radius:999px;display:inline-flex;align-items:center;gap:.6em;transition:background .15s,color .15s}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{color:var(--accent);border-color:var(--accent)}
+.portrait{margin:0;position:relative}
+.portrait img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1027/1190;object-fit:cover;border-radius:2px}
+.portrait figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--ink-2);margin-top:.6rem;text-transform:uppercase}
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;gap:1.2rem;align-items:center;padding-block:.75rem}
+.strip .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);flex:none}
+.ticker{flex:1 1 auto;min-width:0}
+.ticker ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.3rem 1.6rem}
+.ticker a{font-family:var(--display);font-weight:600;font-size:.92rem;letter-spacing:-.01em;text-decoration:none}
+.ticker a:hover{color:var(--accent);text-decoration:underline}
+.ticker.run{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 2rem,#000 calc(100% - 2rem),transparent);mask-image:linear-gradient(90deg,transparent,#000 2rem,#000 calc(100% - 2rem),transparent)}
+.ticker.run .ticker-track{display:flex;width:max-content;animation:ticker var(--ticker-dur,60s) linear infinite}
+.ticker.run ul{flex-wrap:nowrap;gap:0}
+.ticker.run li{white-space:nowrap;padding-right:3rem;position:relative}
+.ticker.run li::after{content:"";position:absolute;right:1.4rem;top:50%;width:.3rem;height:.3rem;margin-top:-.15rem;border-radius:50%;background:var(--accent)}
+.ticker.run:hover .ticker-track,.ticker.run:focus-within .ticker-track,.ticker.run.paused .ticker-track{animation-play-state:paused}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.ticker-toggle{flex:none;display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;padding:0;background:none;border:1px solid var(--line);color:var(--ink-2);border-radius:999px;cursor:pointer}
+.ticker-toggle .ic-play{display:none}
+.ticker-toggle.is-paused .ic-play{display:block}
+.ticker-toggle.is-paused .ic-pause{display:none}
+.ticker-toggle:hover{color:var(--accent);border-color:var(--accent)}
+
+/* sections */
+section{padding-block:4.5rem}
+.sec-head{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:2rem;margin-bottom:2.2rem;align-items:baseline}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;font-variation-settings:"wdth" 108}
+.sec-head p{margin:0;color:var(--ink-2);max-width:40em}
+
+/* about */
+.about .prose{max-width:68ch}
+.prose p{margin:0 0 1.1em;max-width:62ch}
+.prose p:first-child{font-size:1.2rem;line-height:1.55}
+
+/* work */
+.work{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.featured{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:2rem;padding:2rem 0 2.2rem;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);margin-bottom:1.6rem}
+.featured .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.featured .awards{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.7rem;font-size:.92rem;color:var(--ink-2)}
+.featured .tag .nw{white-space:nowrap}
+.featured .awards .cat{display:block;font-size:.85rem;color:var(--ink-2);line-height:1.35;margin-top:.1rem}
+.featured h3{font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.featured h3 a{text-decoration:none}
+.featured h3 a:hover{text-decoration:underline}
+.featured .meta{margin-top:.7rem}
+.featured p{margin:.9rem 0 0;max-width:60ch}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.filters button{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);background:var(--paper);color:var(--ink-2);padding:.5em .95em;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters button:hover{border-color:var(--accent);color:var(--accent)}
+.filters button[aria-pressed="true"]:hover{color:var(--paper)}
+.clips{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.clip{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1.4rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.clip .when{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-2);text-transform:uppercase;padding-top:.35em;font-variant-numeric:tabular-nums}
+.clip .when b{display:block;font-weight:500;color:var(--ink)}
+.clip h3{font-family:var(--display);font-weight:600;font-size:1.18rem;letter-spacing:-.015em;line-height:1.25;font-variation-settings:"wdth" 102}
+.clip h3 a{text-decoration:none}
+.clip h3 a:hover{color:var(--accent);text-decoration:underline}
+.clip .with{font-family:var(--mono);font-size:.74rem;color:var(--ink-2);margin-top:.35rem;letter-spacing:.01em}
+.clip p{margin:.55rem 0 0;max-width:64ch;color:var(--ink-2);font-size:.98rem}
+.clip .note{margin:.45rem 0 0;font-size:.9rem;color:var(--ink-2);font-style:italic}
+.clip .note+.note{margin-top:.15rem}
+.clip .note a{color:var(--ink)}
+.clip[hidden]{display:none}
+.empty{padding:2rem 0;color:var(--ink-2);font-style:italic}
+
+/* awards */
+.ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ledger li{display:grid;grid-template-columns:5rem minmax(0,5fr) minmax(0,6fr);gap:1.4rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.ledger .yr{font-family:var(--mono);font-size:.82rem;font-variant-numeric:tabular-nums;color:var(--accent);padding-top:.2em}
+.ledger .aw{font-family:var(--display);font-weight:600;font-size:1.02rem;letter-spacing:-.01em;line-height:1.3}
+.ledger .aw small{display:block;font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);margin-top:.3rem}
+.ledger .for{font-size:.96rem;color:var(--ink-2)}
+.ledger .for a{color:var(--ink)}
+.ledger .aw small .ln{display:block}
+.ledger .for{text-wrap:pretty}
+.ledger .for .note{display:block;font-size:.86rem;line-height:1.4;margin-top:.25rem}
+
+/* resume */
+.resume .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:3.5rem}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line);margin-left:.4rem}
+.timeline li{position:relative;padding:0 0 1.5rem 1.6rem}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+.timeline li:first-child::before{background:var(--accent)}
+.timeline .org{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.015em}
+.timeline .rl{font-size:.98rem;color:var(--ink-2)}
+.timeline{padding-bottom:0}
+.resume .wrap{row-gap:2.2rem}
+.talks{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px;padding:1.3rem 1.4rem .4rem;align-self:start}
+.talks h3{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 .4rem}
+.talks ul{list-style:none;margin:0;padding:0}
+.talks li{padding:.9rem 0;border-top:1px solid var(--line)}
+.talks li:first-child{border-top:0}
+.talks .role{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.015em}
+.talks .venue{font-size:.94rem;color:var(--ink-2);margin-top:.15rem;text-wrap:pretty}
+.talks .venue a{color:var(--ink)}
+.talks .venue .ln{display:block}
+.talks .when{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:.25rem}
+.timeline li.else{padding-bottom:.2rem}
+.timeline li.else::before{width:8px;height:8px;left:-5px;top:.35em;background:var(--line);border:0}
+.timeline .lbl2{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.55rem}
+.pubs{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.timeline .pubs li::before{content:none}
+.timeline .pubs li{padding:.3rem .8rem}
+.pubs li{font-family:var(--display);font-weight:600;font-size:.92rem;letter-spacing:-.01em;padding:.3rem .8rem;border:1px solid var(--line);border-radius:99px;background:var(--paper)}
+.timeline .yr{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:.2rem;font-variant-numeric:tabular-nums}
+
+/* secure contact */
+.secure{background:var(--panel);color:var(--panel-fg)}
+.secure .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:3rem}
+.secure h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-.03em;font-variation-settings:"wdth" 108}
+.secure .eyebrow{color:var(--panel-accent)}
+.secure .eyebrow::before{background:var(--panel-accent)}
+.secure a:not(.btn):hover{color:var(--panel-accent)}
+.secure p{max-width:52ch}
+.secure .lead{font-size:1.15rem;margin:1.2rem 0 0}
+.secure .muted{color:var(--panel-muted);font-size:.95rem}
+.sigbox{border:1px solid var(--panel-line);border-radius:6px;padding:1.4rem;display:grid;gap:1rem;align-content:start}
+.sigbox .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--panel-muted)}
+.sigbox .btn{border-color:var(--panel-fg);color:var(--panel-fg);justify-content:center}
+.sigbox .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.sigbox .btn.primary:hover{background:var(--panel-fg);border-color:var(--panel-fg);color:var(--panel)}
+.sigbox .btn:hover{color:var(--panel-accent);border-color:var(--panel-accent)}
+.uname{display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px dashed var(--panel-line);border-radius:4px;padding:.8rem 1rem;font-family:var(--mono);font-size:.95rem;min-height:3.2rem}
+.uname code{font-family:inherit;user-select:all;overflow-wrap:anywhere;min-width:0}
+.uname .ghost{color:var(--panel-muted);letter-spacing:.2em}
+.uname code.scrambling{color:var(--panel-accent)}
+.uname button:disabled{opacity:.6;cursor:default}
+.uname button{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--panel-line);color:var(--panel-fg);padding:.45em .8em;border-radius:999px;cursor:pointer;flex:none}
+.uname button:hover{border-color:var(--panel-accent);color:var(--panel-accent)}
+.steps{margin:0;padding-left:1.2em;font-size:.95rem;color:var(--panel-muted);display:grid;gap:.4rem}
+.steps li::marker{font-family:var(--mono);color:var(--panel-accent)}
+
+/* footer */
+footer{padding-block:2.2rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+footer ul{list-style:none;margin:0;padding:0;display:flex;gap:1.4rem;flex-wrap:wrap}
+footer a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-2)}
+footer .copy{font-family:var(--mono);font-size:.72rem;color:var(--ink-2)}
+
+@media (max-width:860px){
+  .hero .wrap,.resume .wrap,.secure .wrap{grid-template-columns:1fr;gap:2.2rem}
+  .hero .wrap{align-items:start}
+  .portrait{max-width:420px}
+  .sec-head{grid-template-columns:1fr;gap:.6rem}
+  .featured{grid-template-columns:1fr;gap:1rem}
+  .ledger li{grid-template-columns:4rem minmax(0,1fr);gap:.8rem}
+  .ledger .for{grid-column:2}
+}
+@media (max-width:520px){
+  section{padding-block:3.2rem}
+  .strip .wrap{flex-wrap:wrap;gap:.5rem .8rem;justify-content:space-between}
+  .ticker{order:3;flex-basis:100%}
+  .clip{grid-template-columns:1fr;gap:.3rem}
+}
+</style>
+
+<script>
+(function(){
+  // Hero highlight rotates on each visit: blue tint, coral, mint, lilac, warm stone
+  var H=[['#cdd8ff','#22306b'],['#ffc2b3','#6b2a1f'],['#bfe9d3','#1b4d38'],['#ded2ff','#3b2d6b'],['#e0d9cb','#3d382f']];
+  var i;
+  try{i=(parseInt(localStorage.getItem('hl'),10)+1)%H.length;if(isNaN(i))i=0;localStorage.setItem('hl',String(i));}
+  catch(e){i=Math.floor(Math.random()*H.length);}
+  var r=document.documentElement.style;r.setProperty('--mark-light',H[i][0]);r.setProperty('--mark-dark',H[i][1]);
+})();
+</script>
 </head>
 <body>
+
+<header class="nav">
   <div class="wrap">
-    <header class="site-header">
-      <p class="site-name"><a href="./">Davey Alba</a></p>
-      <p class="tagline">Writing portfolio</p>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="./" aria-current="page">About Me</a></li>
-          <li><a href="clips/">Clips</a></li>
-          <li><a href="resume/">Resume</a></li>
-          <li><a href="secure/">Secure Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <a class="wordmark" href="#top">daveyalba<span>.</span>com</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a class="tip" href="#secure">Secure contact</a></li>
+      <li><button type="button" class="theme" id="theme-toggle" aria-label="Switch to dark mode" title="Switch theme"><svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></li>
+    </ul>
+  </div>
+</header>
 
-    <main>
-      <h1>Technology Reporter for Bloomberg News</h1>
-
-      <div class="intro">
-        <figure class="portrait">
-          <img src="images/davey-alba.png" alt="Portrait of Davey Alba">
-          <figcaption>Credit: Calla Kessler/The New York Times</figcaption>
-        </figure>
-        <div class="intro-text">
-        <p class="lede">I’m a technology reporter for Bloomberg, based in New York City. I cover Big Tech and its power in all its forms.</p>
-
-        <p>I combine documents, sources and data analysis to show how decisions made inside tech companies affect people’s lives and the democratic process. Recently, that’s meant investigating how Google user data became a police shortcut, how right-wing YouTubers helped push young men toward Trump in 2024, how Elon Musk used X to spread anti-immigrant conspiracies, and how OpenAI’s GPT showed racial bias against job seekers.</p>
-
-        <p>Most recently, I was a <a href="https://www.nytimes.com/by/davey-alba">reporter for The New York Times</a>, where I covered <a href="https://www.nytco.com/press/meet-our-new-tech-reporter-davey-alba/">online disinformation and its global harms</a>. Before that, I was a senior reporter at <a href="https://www.buzzfeednews.com/author/daveyalba">BuzzFeed News</a>, where I wrote about artificial intelligence and tech’s invasive effects on people and communities. And a few years ago, I worked as a reporter for <a href="https://www.wired.com/author/davey-alba">WIRED</a> in Silicon Valley.</p>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Technology reporter · Bloomberg News · New York</p>
+        <h1>Davey <em>Alba</em></h1>
+        <p class="role">At <strong>Bloomberg News</strong>, I cover <strong>Big Tech and its power</strong> in all its forms, combining documents, sources and data analysis to show how decisions made inside tech companies affect people's lives and the democratic process.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">Selected work</a>
+          <a class="btn" href="#secure">Send a tip on Signal</a>
         </div>
       </div>
+      <figure class="portrait">
+        <img src="images/davey-alba.jpg" alt="Davey Alba standing on a New York City street in a denim jacket" width="1027" height="1190">
+        <figcaption>Photo: Calla Kessler / The New York Times</figcaption>
+      </figure>
+    </div>
+  </section>
 
-      <p>In 2019 I <a href="https://news.umich.edu/livingston-awards-for-young-journalists-announce-2019-winners/">won a Livingston Award</a> for excellence in international reporting for my piece, “<a href="https://www.buzzfeednews.com/article/daveyalba/facebook-philippines-dutertes-drug-war">How Duterte Used Facebook To Fuel the Philippine Drug War</a>.” I also won a <a href="https://web.archive.org/web/20191121142931/http://mirrorawards.syr.edu/2019/06/13/winners-announced-in-2019-mirror-awards-competition-for-media-industry-reporting/">2019 Mirror Award</a> in the special topic category, Best Story on Journalism in Peril, for the same feature. In 2020, I and several of my Times colleagues won an honorable mention at the <a href="https://sabew.org/2020-best-in-business-honorees-judging-comments/">SABEW Awards</a> for our <a href="https://www.nytimes.com/2020/10/18/technology/timpone-local-news-metric-media.html">stories</a> exploring the information ecosystem’s growing dark side. In 2023, I and my Bloomberg colleagues won an <a href="https://awards.journalists.org/winners/2023/">Online Journalism Award</a> and a <a href="https://www.deadlineclub.org/2023-award-winners/">Deadline Club Award</a> for our reporting on the post-Roe information crisis, and we were shortlisted for a <a href="https://web.archive.org/web/20231001013942/https://sigmaawards.org/google-maps-regularly-misleads-people-searching-for-abortion-clinics/">Sigma Award</a> and named SABEW finalists in the investigations category. Our investigation into bias in generative AI was part of Bloomberg’s <a href="https://awards.journalists.org/entries/uncovering-bias-in-two-leading-ai-systems/">2024 Online Journalism Award</a>–winning entry for technology reporting, and our work on how social media set the stage for right-wing political victories was a <a href="https://awards.journalists.org/entries/how-social-media-set-the-stage-for-right-wing-political-victories/">2025 Online Journalism Awards finalist</a>.</p>
-
-      <p>I’ve spoken publicly about my work at <a href="https://www.bsg.ox.ac.uk/news/what-can-governments-do-if-they-want-support-their-citizens">Oxford University</a> during the Blavatnik School of Government’s “Challenges of Government” 2018 Conference, and at the University of Florida, where I was the Science Journalist in Residence for Spring 2019.</p>
-
-      <p>I studied <a href="https://apply.jrn.columbia.edu/register/AwardsAlbaLivingston">science writing at Columbia University</a>, and grew up in Manila, Philippines. Today I live in Brooklyn, New York, with my two cats, Laser Beam and Vivienne.</p>
-
-      <p>Feel free to browse my site for a selection of <a href="clips/">some of my recent work</a>.</p>
-    </main>
-
-    <footer class="site-footer">
-      <ul>
-        <li><a href="https://bsky.app/profile/davey.bsky.social"><i class="fa-brands fa-bluesky" aria-hidden="true"></i><span class="visually-hidden">Bluesky</span></a></li>
-        <li><a href="https://www.linkedin.com/in/davey-alba/"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a></li>
-        <li><a href="https://www.instagram.com/daveya/"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="visually-hidden">Instagram</span></a></li>
-        <li><a href="https://twitter.com/daveyalba"><i class="fa-brands fa-twitter" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a></li>
-      </ul>
-    </footer>
+  <div class="strip">
+    <div class="wrap">
+      <span class="k" id="ticker-label">Recent investigations</span>
+      <div class="ticker" id="ticker">
+        <div class="ticker-track" id="ticker-track">
+          <ul aria-labelledby="ticker-label">
+            <li><a href="https://www.bloomberg.com/graphics/2025-youtube-podcast-men-for-trump/">How right-wing YouTubers pushed young men toward Trump in 2024</a></li>
+            <li><a href="https://www.bloomberg.com/graphics/2024-musk-x-election-influence-immigration/">How Elon Musk used X to spread anti-immigrant conspiracies</a></li>
+            <li><a href="https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/">How OpenAI's GPT showed racial bias against job seekers</a></li>
+            <li><a href="https://www.bloomberg.com/news/features/2023-09-28/google-user-data-is-police-s-top-shortcut-for-solving-crimes">How Google user data became a police shortcut</a></li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="ticker-toggle" id="ticker-toggle" aria-label="Pause headlines" title="Pause" hidden><svg class="ic-pause" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3" height="10" rx=".6"/><rect x="7" y="1" width="3" height="10" rx=".6"/></svg><svg class="ic-play" width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.4c0-.5.5-.8.9-.5l6.4 4.6c.4.3.4.8 0 1.1L3.900 11.100c-.4.3-.9 0-.9-.5z"/></svg></button>
+    </div>
   </div>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="prose">
+        <p>Before joining Bloomberg in 2022, I was a <a href="https://www.nytimes.com/by/davey-alba">reporter for The New York Times</a>, where I covered <a href="https://www.nytco.com/press/meet-our-new-tech-reporter-davey-alba/">online disinformation and its global harms</a>. Earlier, I was a senior reporter at <a href="https://www.buzzfeednews.com/author/daveyalba">BuzzFeed News</a>, where I wrote about artificial intelligence and tech's invasive effects on people and communities. And a few years ago, I worked as a reporter for <a href="https://www.wired.com/author/davey-alba">WIRED</a> in Silicon Valley.</p>
+        <p>I've coached reporters and editors on covering AI through the Pulitzer Center's <a href="https://pulitzercenter.org/focus-areas/information-and-artificial-intelligence/ai-spotlight-series">AI Spotlight Series</a>. My speaking engagements have included <a href="https://www.bsg.ox.ac.uk/news/what-can-governments-do-if-they-want-support-their-citizens">Oxford University</a>, during the Blavatnik School of Government's "Challenges of Government" 2018 Conference, and the University of Florida, where I was the Science Journalist in Residence for Spring 2019.</p>
+        <p>I studied <a href="https://apply.jrn.columbia.edu/register/AwardsAlbaLivingston">science writing at Columbia University</a>, and grew up in Manila, Philippines. Today I live in Brooklyn, New York, with my two cats, Laser Beam and Vivienne.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p>Investigations and features from Bloomberg, The New York Times, BuzzFeed News and WIRED, plus earlier print work and interviews.</p>
+      </div>
+
+      <article class="featured">
+        <div>
+          <div class="tag"><span class="nw">Featured · BuzzFeed News</span> · <span class="nw">September 2018</span></div>
+          <ul class="awards">
+            <li><a href="https://news.umich.edu/livingston-awards-for-young-journalists-announce-2019-winners/">Winner, 2019 Livingston Award</a><span class="cat">International reporting</span></li>
+            <li><a href="https://web.archive.org/web/20191121142931/http://mirrorawards.syr.edu/2019/06/13/winners-announced-in-2019-mirror-awards-competition-for-media-industry-reporting/">Winner, 2019 Mirror Award</a><span class="cat">Best Story on Journalism in Peril</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3><a href="https://www.buzzfeednews.com/article/daveyalba/facebook-philippines-dutertes-drug-war">How Duterte Used Facebook To Fuel the Philippine Drug War</a></h3>
+          <p>A reported feature on how the platform became the engine of a government's propaganda machine, and what that meant for the journalists and citizens caught in it.</p>
+        </div>
+      </article>
+
+      <div class="filters" role="group" aria-label="Filter work by outlet">
+        <button type="button" data-f="bloomberg" aria-pressed="true" id="f-bloomberg">Bloomberg</button>
+        <button type="button" data-f="nyt" aria-pressed="false" id="f-nyt">The New York Times</button>
+        <button type="button" data-f="buzzfeed" aria-pressed="false" id="f-buzzfeed">BuzzFeed News</button>
+        <button type="button" data-f="wired" aria-pressed="false" id="f-wired">WIRED</button>
+        <button type="button" data-f="print" aria-pressed="false" id="f-print">Print &amp; early work</button>
+        <button type="button" data-f="interviews" aria-pressed="false" id="f-interviews">Interviews</button>
+        <button type="button" data-f="all" aria-pressed="false" id="f-all">All</button>
+      </div>
+
+      <ul class="clips" id="clips">
+        <!-- Bloomberg -->
+        <li class="clip" data-o="bloomberg"><div class="when"><b>Bloomberg</b>Jan &amp; Nov 2025</div><div>
+          <h3><a href="https://www.bloomberg.com/graphics/2025-youtube-podcast-men-for-trump/">The Second Trump Presidency, Brought to You by YouTubers</a></h3>
+          <h3 style="margin-top:.4rem"><a href="https://www.bloomberg.com/graphics/2025-conservative-youtube-stars-marketing-boom/">YouTube's Right-Wing Stars Fuel Boom in Politically Charged Ads</a></h3>
+          <div class="with">Both with Leon Yin, Julia Love, Ashley Carman, Priyanjana Bengani, Rachael Dottle and Elena Mejía</div>
+          <p>A pair of data-driven investigations into the new conservative media landscape: how a high-reach network of YouTubers built a parallel media infrastructure that helped drive a historic rightward shift among young men in the 2024 election, and forged an "identity-driven" marketplace where consumerism and partisan politics have fused. Based on an audit of 1,300 hours of video and an analysis of host-read ads across nearly 1,000 YouTube episodes.</p>
+          <p class="note">Winner, 2026 <a href="https://lapressclub.org/wp-content/uploads/2026/06/SoCal-2026-Winners-06262026-2311.pdf">Los Angeles Press Club SoCal Journalism Award</a>, news feature</p>
+          <p class="note">Finalist, 2025 <a href="https://awards.journalists.org/entries/how-social-media-set-the-stage-for-right-wing-political-victories/">Online Journalism Awards</a></p>
+        </div></li>
+        <li class="clip" data-o="bloomberg"><div class="when"><b>Bloomberg</b>Oct 2024</div><div>
+          <h3><a href="https://www.bloomberg.com/graphics/2024-musk-x-election-influence-immigration/">Elon Musk Is Now X's Biggest Promoter of Anti-Immigrant Conspiracies</a></h3>
+          <div class="with">With Julia Love, Jeff Kao and Leonardo Nicoletti</div>
+          <p>A computational audit of 53,000 posts showing how Musk used his ownership of X to become the platform's primary engine of anti-immigrant conspiracies, amplifying debunked voter-fraud theories to a 200-million-person audience ahead of the 2024 election, paired with on-the-ground reporting on how those narratives shaped the views of the people they targeted.</p>
+        </div></li>
+        <li class="clip" data-o="bloomberg"><div class="when"><b>Bloomberg</b>Mar 2024</div><div>
+          <h3><a href="https://www.bloomberg.com/graphics/2024-openai-gpt-hiring-racial-discrimination/">OpenAI's GPT Is a Recruiter's Dream Tool. Tests Show There's Racial Bias</a></h3>
+          <div class="with">With Leon Yin and Leonardo Nicoletti</div>
+          <p>A data-driven investigation revealing how generative AI can discriminate against job seekers based on their names, with racial and gender biases that would fail federal benchmarks used to assess illegal hiring discrimination.</p>
+          <p class="note">Part of Bloomberg's <a href="https://awards.journalists.org/entries/uncovering-bias-in-two-leading-ai-systems/">2024 Online Journalism Award</a>–winning entry for technology reporting</p>
+        </div></li>
+        <li class="clip" data-o="bloomberg"><div class="when"><b>Bloomberg</b>Sep 2023</div><div>
+          <h3><a href="https://www.bloomberg.com/news/features/2023-09-28/google-user-data-is-police-s-top-shortcut-for-solving-crimes">Google User Data Has Become a Favorite Police Shortcut</a></h3>
+          <div class="with">With Julia Love</div>
+          <p>Drawing on court filings and testimony, an investigation into how police increasingly turn to Google's vast stores of user data as a shortcut for solving crimes.</p>
+        </div></li>
+        <li class="clip" data-o="bloomberg"><div class="when"><b>Bloomberg</b>Aug 2022</div><div>
+          <h3><a href="https://www.bloomberg.com/graphics/2022-google-search-abortion-clinic-crisis-pregnancy-center/">Google Maps Regularly Misleads People Searching for Abortion Clinics</a></h3>
+          <div class="with">With Jack Gillum</div>
+          <p>How Google Maps routinely steered people searching for abortion clinics toward "crisis pregnancy centers," giving medical misinformation a platform during critical windows for care.</p>
+          <p class="note">Winner of an <a href="https://awards.journalists.org/winners/2023/">Online Journalism Award</a> and a <a href="https://www.deadlineclub.org/2023-award-winners/">Deadline Club Award</a>; shortlisted for a <a href="https://web.archive.org/web/20231001013942/https://sigmaawards.org/google-maps-regularly-misleads-people-searching-for-abortion-clinics/">Sigma Award</a>; SABEW finalist</p>
+        </div></li>
+
+        <!-- NYT -->
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Oct 2020</div><div>
+          <h3><a href="https://www.nytimes.com/2020/10/18/technology/timpone-local-news-metric-media.html">As Local News Dies, a Pay-for-Play Network Rises in Its Place</a></h3>
+          <div class="with">With Jack Nicas</div>
+          <p>An investigation into a nationwide "pink slime" network of 1,300 sites, exposing how political operatives and corporate P.R. firms exploited the collapse of local news to plant pay-for-play propaganda disguised as independent community journalism.</p>
+          <p class="note">Honorable mention at the <a href="https://www.nytco.com/press/times-wins-7-sabew-awards/">2020 SABEW Awards</a></p>
+        </div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Apr 2022</div><div><h3><a href="https://www.nytimes.com/2022/04/03/technology/robert-malone-covid.html">The Latest Covid Misinformation Star Says He Invented the Vaccines</a></h3></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Sep 2021</div><div><h3><a href="https://www.nytimes.com/live/2020/2020-election-misinformation-distortions#facebook-sent-flawed-data-to-misinformation-researchers">Facebook Sent Flawed Data To Misinformation Researchers</a></h3></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Aug 2021</div><div><h3><a href="https://www.nytimes.com/2021/08/20/technology/facebook-popular-posts.html">Facebook, Fearing Public Outcry, Shelved Earlier Report on Popular Posts</a></h3><div class="with">With Ryan Mac</div></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Jul 2021</div><div><h3><a href="https://www.nytimes.com/2021/07/30/technology/amazon-nooses-warehouse.html">Nooses, Anger and No Answers: Inside the Uproar Over a Future Amazon Site</a></h3></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Jun 2021</div><div><h3><a href="https://www.nytimes.com/interactive/2021/06/07/technology/trump-social-media-ban.html">What Happened When Trump Was Banned on Social Media</a></h3><div class="with">With Ella Koeze and Jacob Silver</div></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Feb 2020</div><div><h3><a href="https://www.nytimes.com/2020/02/06/business/facial-recognition-schools.html">Facial Recognition Moves Into a New Front: Schools</a></h3></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Dec 2019</div><div><h3><a href="https://www.nytimes.com/2019/12/15/technology/2020-campaigns-disinformation.html">2020 Campaigns Throw Their Hands up on Disinformation</a></h3></div></li>
+        <li class="clip" data-o="nyt"><div class="when"><b>NY Times</b>Sep 2019</div><div><h3><a href="https://www.nytimes.com/2019/09/29/technology/facebook-disinformation.html">Ahead of 2020, Facebook Falls Short on Plan to Share Data on Disinformation</a></h3></div></li>
+
+        <!-- BuzzFeed -->
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>May 2019</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">A Multimillion-Dollar Startup Hid A Sexual Harassment Incident By Its CEO, Then A Community of Outsiders Dragged It Into the Light</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Apr 2019</div><div><h3><a href="https://www.buzzfeednews.com/article/ryanmac/tech-men-accused-sexual-misconduct-new-jobs-metoo">These Tech Execs Faced #MeToo Allegations. They All Have New Jobs</a></h3><div class="with">With Ryan Mac</div><p class="note">Impact: <a href="https://www.buzzfeednews.com/article/daveyalba/ziprecruiter-resign-sexual-misconduct">A ZipRecruiter executive resigned</a> after details of alleged sexual misconduct surfaced</p></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Mar 2019</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/these-documents-reveal-the-governments-detailed-plan-for">The US Government Will Be Scanning Your Face At 20 Top Airports, Documents Show</a></h3><p class="note">Impact: <a href="https://www.buzzfeednews.com/article/daveyalba/these-senators-want-homeland-security-to-pause-its-facial">Senators asked Homeland Security to "pause"</a> its airport facial recognition program</p></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Feb 2019</div><div><h3><a href="https://www.buzzfeednews.com/article/josephbernstein/tomi-masters-down-the-rabbit-hole-i-go">"Down The Rabbit Hole I Go": How A Young Woman Followed Two Hackers' Lies To Her Death</a></h3><div class="with">With Joe Bernstein</div></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Nov 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/buzzfeed-to-end-forced-arbitration-policy-for-sexual">BuzzFeed Is Ending Forced Arbitration Policy For Sexual Harassment Claims Following Inquiries</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Oct 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/amazon-facial-recognition-orlando-police-department">With No Laws To Guide It, Here's How Orlando Is Using Amazon's Facial Recognition Technology</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Aug 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/we-tested-the-fbis-most-wanted-list-on-amazons-celebrity">We Tested The FBI's Most Wanted List On Amazon's Celebrity Recognition Tool. Then Things Got Weird</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Jul 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/spotify-still-wont-enable-a-feature-that-would-let-its">Spotify Still Won't Let Users Block Their Harassers On Its Platform</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Apr 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/kickstarter-perry-chen-founder-worship-turmoil">Perry Chen Says He Wants To Revitalize Kickstarter. Employees Say He's Doing the Opposite</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Apr 2018</div><div><h3><a href="https://www.buzzfeednews.com/article/daveyalba/mark-zuckerberg-artificial-intelligence-facebook-content-pro">Why Facebook Will Never Fully Solve Its Problems With AI</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Dec 2017</div><div><h3><a href="https://www.buzzfeed.com/daveyalba/youtube-search-rater-algorithms-children-disturbing-videos">YouTube Has A Massive Child Exploitation Problem. How Humans Train Its Search AI Is Partly Why</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Nov 2017</div><div><h3><a href="https://www.buzzfeed.com/daveyalba/can-tech-workers-complain-about-sexual-harassment-depends">Can Tech Workers Complain About Sexual Harassment? Depends What They Signed</a></h3></div></li>
+        <li class="clip" data-o="buzzfeed"><div class="when"><b>BuzzFeed News</b>Oct 2017</div><div><h3><a href="https://www.buzzfeed.com/daveyalba/ev-williams-wants-to-save-media-again-but-some-writers-and">Ev Williams Wants To Save Media, Again. But Some Writers And Publishers Are Skeptical</a></h3></div></li>
+
+        <!-- WIRED -->
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Apr 2017</div><div><h3><a href="https://www.wired.com/2017/04/zerochaos-google-ads-quality-raters/">The Hidden Laborers Training AI to Keep Ads Off Hateful YouTube Videos</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Mar 2016</div><div><h3><a href="https://www.wired.com/2016/03/fault-microsofts-teen-ai-turned-jerk/">It's Your Fault Microsoft's Teen AI Turned Into Such a Jerk</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Dec 2015</div><div><h3><a href="https://www.wired.com/2015/12/in-a-city-with-the-worlds-worst-traffic-uber-tries-to-fit-in/">In the City with the World's Worst Traffic, Uber Is an Awkward Fit</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Sep 2015</div><div><h3><a href="https://www.wired.com/2015/09/love-pizza-rat-dont-pizza-rat/">You Love Pizza Rat. You Don't Own Pizza Rat</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Aug 2015</div><div><h3><a href="https://www.wired.com/2015/08/stanford-artificial-intelligence-laboratorys-outreach-summer-program/">This Girls' Summer Camp Could Help Change the World of AI</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Aug 2015</div><div><h3><a href="https://www.wired.com/2015/08/jukin-media/">Inside the Company that's Made Viral Videos Big Business</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Jun 2015 · print</div><div><h3><a href="https://www.wired.com/2015/05/ellen-pao-trial/">It'd Be Crazy If VC Firms Didn't Fix Their Gender Problems</a></h3></div></li>
+        <li class="clip" data-o="wired"><div class="when"><b>WIRED</b>Jan 2015</div><div><h3><a href="https://www.wired.com/2015/01/omniprocessor/">Bill Gates' Plan to Help the Developing World Profit From Its Sewage</a></h3></div></li>
+
+        <!-- Print & early -->
+        <li class="clip" data-o="print"><div class="when"><b>Popular Mechanics</b>Feb 2014 · cover</div><div><h3><a href="https://www.daveyalba.com/s/privacy.pdf">Privacy</a></h3><div class="with">Cover story, print issue (PDF)</div></div></li>
+        <li class="clip" data-o="print"><div class="when"><b>Popular Mechanics</b>Nov 2014 · print</div><div><h3><a href="https://www.daveyalba.com/s/Atlas.pdf">A Robot for Any Disaster</a></h3><div class="with">Print issue (PDF)</div></div></li>
+        <li class="clip" data-o="print"><div class="when"><b>Popular Mechanics</b>Sep 2014 · print</div><div><h3><a href="https://www.daveyalba.com/s/the-behemoth.pdf">The Behemoth</a></h3><div class="with">Print issue (PDF)</div></div></li>
+        <li class="clip" data-o="print"><div class="when"><b>Columbia Journalism</b>Dec 2012</div><div><h3><a href="https://www.daveyalba.com/heat-wave/">A City's Fever Spell</a></h3><div class="with">Columbia University Graduate School of Journalism</div></div></li>
+        <li class="clip" data-o="print"><div class="when"><b>Columbia Journalism</b>Nov 2012</div><div><h3><a href="https://www.daveyalba.com/fiber-optics/">Communication at the Speed of Light</a></h3><div class="with">Columbia University Graduate School of Journalism</div></div></li>
+
+        <!-- Interviews -->
+        <li class="clip" data-o="interviews"><div class="when"><b>WPSU</b>Apr 2026</div><div><h3><a href="https://radio.wpsu.org/2026-04-29/the-new-mainstream-media-how-lifestyle-podcasts-are-becoming-the-go-to-information-source-for-american-men">The New Mainstream Media: How Lifestyle Podcasts Are Becoming the Go-To Information Source for American Men</a></h3><div class="with">News Over Noise</div></div></li>
+        <li class="clip" data-o="interviews"><div class="when"><b>MSNBC</b>Dec 2020</div><div><h3><a href="https://www.youtube.com/watch?v=_3HBp1pP7fg">Your Local Disinformation</a></h3><div class="with">Why Is This Happening? with Chris Hayes</div></div></li>
+        <li class="clip" data-o="interviews"><div class="when"><b>UN Dispatch</b>Oct 2018</div><div><h3><a href="https://www.undispatch.com/duterte-philippines-drug-war/">How Facebook Abets Rodrigo Duterte's Drug War in the Philippines</a></h3></div></li>
+        <li class="clip" data-o="interviews"><div class="when"><b>NPR</b>Mar 2015</div><div><h3><a href="https://www.npr.org/2015/03/28/396040883/assessing-the-ellen-pao-verdict">Assessing the Ellen Pao Verdict</a></h3><div class="with">All Things Considered</div></div></li>
+        <li class="clip" data-o="interviews"><div class="when"><b>NPR</b>Mar 2015</div><div><h3><a href="https://www.npr.org/2015/03/14/393031791/a-gender-discrimination-trial-rocks-silicon-valley">A Gender Discrimination Trial Rocks Silicon Valley</a></h3><div class="with">All Things Considered</div></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="awards" id="awards">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Awards</h2>
+        <p>Recognition for investigations into platforms, propaganda and the information ecosystem.</p>
+      </div>
+      <ul class="ledger">
+        <li><span class="yr">2026</span><span class="aw">Los Angeles Press Club SoCal Journalism Award<small>First place, news feature · newspapers over 50,000</small></span><span class="for"><a href="https://lapressclub.org/wp-content/uploads/2026/06/SoCal-2026-Winners-06262026-2311.pdf">How 9 Popular YouTubers Helped Trump Win a Second Term</a><span class="note">With Bloomberg colleagues</span></span></li>
+        <li><span class="yr">2025</span><span class="aw">Online Journalism Awards finalist<small>Technology reporting</small></span><span class="for"><a href="https://awards.journalists.org/entries/how-social-media-set-the-stage-for-right-wing-political-victories/">How social media set the stage for right-wing political victories</a><span class="note">With Bloomberg colleagues</span></span></li>
+        <li><span class="yr">2024</span><span class="aw">Online Journalism Award<small>Excellence in technology reporting</small></span><span class="for"><a href="https://awards.journalists.org/entries/uncovering-bias-in-two-leading-ai-systems/">Our investigation into bias in generative AI</a><span class="note">Part of Bloomberg's winning entry</span></span></li>
+        <li><span class="yr">2023</span><span class="aw">Online Journalism Award &amp; Deadline Club Award<small><span class="ln">Sigma Award shortlist</span><span class="ln">SABEW finalist, investigations</span></small></span><span class="for"><a href="https://www.bloomberg.com/graphics/2022-google-search-abortion-clinic-crisis-pregnancy-center/">How Google Maps misled people searching for abortion clinics</a><span class="note">Part of our reporting on the post-Roe information crisis</span></span></li>
+        <li><span class="yr">2020</span><span class="aw">SABEW Awards honorable mention<small>With New York Times colleagues</small></span><span class="for"><a href="https://sabew.org/2020-best-in-business-honorees-judging-comments/">Stories exploring the information ecosystem's growing dark side</a><span class="note">Including pay-for-play local news networks</span></span></li>
+        <li><span class="yr">2019</span><span class="aw">Livingston Award &amp; Mirror Award<small><span class="ln">Excellence in international reporting</span><span class="ln">Best Story on Journalism in Peril</span></small></span><span class="for"><a href="https://www.buzzfeednews.com/article/daveyalba/facebook-philippines-dutertes-drug-war">How Duterte Used Facebook To Fuel the Philippine Drug War</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="resume" id="resume">
+    <div class="wrap">
+        <div class="sec-head" style="grid-template-columns:1fr;gap:.6rem;grid-column:1/-1;margin-bottom:0">
+          <h2>Resume</h2>
+          <p>More than a decade of technology reporting across newsrooms in New York and Silicon Valley.</p>
+        </div>
+      <div>
+        <ol class="timeline">
+          <li><div class="org">Bloomberg News</div><div class="rl">Technology reporter, covering Big Tech and its power</div><div class="yr">Current · New York</div></li>
+          <li><div class="org">The New York Times</div><div class="rl">Technology reporter, covering online disinformation and its global harms</div><div class="yr">New York</div></li>
+          <li><div class="org">BuzzFeed News</div><div class="rl">Senior technology reporter, covering AI and tech's effects on people and communities</div><div class="yr">New York</div></li>
+          <li><div class="org">WIRED</div><div class="rl">Reporter, Silicon Valley</div><div class="yr">San Francisco</div></li>
+          <li><div class="org">Popular Mechanics</div><div class="rl">Editor and writer</div><div class="yr">New York</div></li>
+          <li class="else"><div class="lbl2">Bylines elsewhere</div><ul class="pubs"><li>Wirecutter</li><li>IEEE Spectrum</li><li>Gizmodo</li></ul></li>
+        </ol>
+      </div>
+      <aside class="talks">
+        <h3>Teaching &amp; speaking</h3>
+        <ul>
+          <li><div class="role">Coach</div><div class="venue"><span class="ln"><a href="https://pulitzercenter.org/focus-areas/information-and-artificial-intelligence/ai-spotlight-series">AI Spotlight Series</a></span><span class="ln">Pulitzer Center</span></div><div class="when">2025 – present</div></li>
+          <li><div class="role">Speaker</div><div class="venue"><span class="ln"><a href="https://www.newjerseystage.com/articles/2021/12/27/grunin-center-presents-a-conversation-with-davey-alba-on-march-2nd/">Blauvelt Speaker Series</a></span><span class="ln">Grunin Center for the Arts</span><span class="ln">Ocean County College</span></div><div class="when">March 2022</div></li>
+          <li><div class="role">Science Journalist in Residence</div><div class="venue"><span class="ln"><a href="https://www.jou.ufl.edu/sjr/sjr-previous-talks/">University of Florida</a></span></div><div class="when">Spring 2019</div></li>
+          <li><div class="role">Speaker</div><div class="venue"><span class="ln"><a href="https://www.bsg.ox.ac.uk/news/what-can-governments-do-if-they-want-support-their-citizens">&ldquo;Challenges of Government&rdquo; Conference</a></span><span class="ln">Blavatnik School of Government</span><span class="ln">Oxford University</span></div><div class="when">November 2018</div></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="secure" id="secure">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Secure contact</p>
+        <h2>Have a tip?</h2>
+        <p class="lead">If you have a tip or something sensitive to share, the safest way to reach me is <a href="https://signal.org/">Signal</a>, a free messaging app with end-to-end encryption.</p>
+        <p class="muted">Signal keeps phone numbers private by default, so messaging my username won't show me your number. A few precautions are worth taking: use a personal phone rather than one issued by your employer, and avoid contacting me from a work network or account.</p>
+      </div>
+      <div class="sigbox">
+        <span class="k">Message me on Signal</span>
+        <a class="btn primary" id="sig-link" href="https://signal.me/#eu/WYfXuKrNSfLP9KqyuPVr57alwDkolZiHCRPzQyeFXZm4rh7WQAhAX7NBG_a8a_7r">Open a chat in Signal</a>
+        <span class="k">Or add me manually</span>
+        <div class="uname">
+          <code id="sig-user"><span class="ghost">••••••••</span></code>
+          <button type="button" id="sig-reveal">Reveal username</button>
+        </div>
+        <ol class="steps">
+          <li>Install Signal from signal.org or your phone's app store.</li>
+          <li>Tap the button above, or start a new chat, choose <em>Find by username</em>, and enter my username.</li>
+          <li>For extra privacy, turn on disappearing messages in the chat settings.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <ul>
+      <li><a href="https://bsky.app/profile/davey.bsky.social">Bluesky</a></li>
+      <li><a href="https://www.linkedin.com/in/davey-alba/">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/daveya/">Instagram</a></li>
+      <li><a href="https://twitter.com/daveyalba">Twitter</a></li>
+      <li><a href="https://www.bloomberg.com/authors/AVvdlCVOfng/davey-alba">Bloomberg author page</a></li>
+    </ul>
+    <span class="copy">© Davey Alba · Brooklyn, NY</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Theme toggle: explicit choice wins over the system setting and is remembered on this device
+  var root=document.documentElement,tbtn=document.getElementById('theme-toggle');
+  try{var saved=localStorage.getItem('theme');if(saved==='dark'||saved==='light'){root.setAttribute('data-theme',saved);}}catch(e){}
+  function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return matchMedia('(prefers-color-scheme: dark)').matches;}
+  function label(){tbtn.setAttribute('aria-label',isDark()?'Switch to light mode':'Switch to dark mode');}
+  tbtn.addEventListener('click',function(){var next=isDark()?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('theme',next);}catch(e){}label();});
+  label();
+
+  // Headline ticker: loops a cloned copy of the list; stays a static list with reduced motion or no script
+  (function(){
+    var box=document.getElementById('ticker'),track=document.getElementById('ticker-track'),tog=document.getElementById('ticker-toggle');
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var copy=track.querySelector('ul').cloneNode(true);
+    copy.removeAttribute('aria-labelledby');
+    copy.setAttribute('aria-hidden','true');
+    copy.querySelectorAll('a').forEach(function(a){a.tabIndex=-1;});
+    track.appendChild(copy);
+    box.classList.add('run');
+    function pace(){track.style.setProperty('--ticker-dur',Math.max(30,track.scrollWidth/2/45)+'s');}
+    pace();
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(pace);
+    tog.hidden=false;
+    tog.addEventListener('click',function(){
+      var p=box.classList.toggle('paused');
+      tog.classList.toggle('is-paused',p);
+      tog.setAttribute('aria-label',p?'Play headlines':'Pause headlines');
+      tog.title=p?'Play':'Pause';
+    });
+  })();
+
+  // Outlet filter
+  var buttons=document.querySelectorAll('.filters button');
+  var clips=document.querySelectorAll('#clips .clip');
+  function apply(f){
+    buttons.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.f===f));});
+    clips.forEach(function(c){c.hidden=!(f==='all'||c.dataset.o===f);});
+  }
+  buttons.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.f);});});
+  var h=(location.hash||'').replace('#','');
+  if(/^(bloomberg|nyt|buzzfeed|wired|print|interviews|all)$/.test(h)){apply(h);document.getElementById('work').scrollIntoView();}
+  else{apply('bloomberg');}
+
+  // Signal username reveal (kept behind a click so scrapers don't harvest it)
+  var USER='daveyalba.01';
+  var btn=document.getElementById('sig-reveal'),out=document.getElementById('sig-user');
+  var shown=false;
+  var GLYPHS='abcdefghijklmnopqrstuvwxyz0123456789.#@$%&*';
+  function unscramble(done){
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){out.textContent=USER;done();return;}
+    var n=USER.length,start=null,dur=1100,per=dur/n;
+    out.classList.add('scrambling');
+    function frame(t){
+      if(start===null)start=t;
+      var e=t-start,txt='';
+      for(var i=0;i<n;i++){
+        var ch=USER[i];
+        if(e>=per*(i+1))txt+=ch;
+        else txt+=GLYPHS[Math.floor(Math.random()*GLYPHS.length)];
+      }
+      out.textContent=txt;
+      if(e<dur)requestAnimationFrame(frame);else{out.textContent=USER;out.classList.remove('scrambling');done();}
+    }
+    requestAnimationFrame(frame);
+  }
+  btn.addEventListener('click',function(){
+    if(!shown){shown=true;btn.disabled=true;btn.textContent='…';unscramble(function(){btn.disabled=false;btn.textContent='Copy';});return;}
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy';},1500);};
+    try{navigator.clipboard.writeText(USER).then(done,function(){selectAll();});}catch(e){selectAll();}
+    function selectAll(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  });
+})();
+</script>
 </body>
 </html>

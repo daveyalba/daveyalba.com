@@ -3,16 +3,16 @@
 Plain HTML/CSS site hosted free on GitHub Pages. No build step: edit a file, commit, and it's live a minute later.
 
 ```
-index.html            About Me (home)
-clips/index.html      Clips
-resume/index.html     Resume
-secure/index.html     Secure Contact (Signal; username is encoded, revealed on click)
-pgp/index.html        redirect from the old PGP page to /secure/
-heat-wave/            2012 Columbia piece
-fiber-optics/         2012 Columbia piece
-assets/style.css      all styling
-images/               photos (filled by download-assets.sh)
-s/                    PDFs   (filled by download-assets.sh; same /s/ paths as the old site)
+index.html            the whole site: one page (About, Work, Awards, Resume, Secure contact)
+404.html              page-not-found screen
+favicon.svg           browser-tab icon
+images/davey-alba.jpg portrait (photo: Calla Kessler / The New York Times)
+clips/ resume/ secure/ pgp/   redirects from the old section pages to the matching part of the homepage
+heat-wave/            2012 Columbia piece (still uses assets/style.css)
+fiber-optics/         2012 Columbia piece (still uses assets/style.css)
+assets/style.css      styling for the two 2012 pieces
+images/               photos for the 2012 pieces
+s/                    PDFs (same /s/ paths as the old site)
 CNAME                 tells GitHub Pages the domain is www.daveyalba.com
 ```
 
